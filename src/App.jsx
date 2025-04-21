@@ -9,7 +9,7 @@ import Contact from "./Page/Contact/contact.jsx";
 import Listing from "./components/listing/listing.jsx";
 import NotFound from "./components/Not found/notFound.jsx";
 import Register from "./Page/Account/Register/register.jsx";
-import Login from "./Page/Account/login/login.jsxs";
+import Login from "./Page/Account/login/login.jsx";
 import DashBoard from "./components/DashBoard/dashboard.jsx";
 import Deals from "./components/deals/deals.jsx";
 import UserAccount from "./Page/Account/userAccount/user.jsx";

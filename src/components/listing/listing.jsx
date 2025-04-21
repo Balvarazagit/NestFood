@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NavigateNextOutlinedIcon from "@mui/icons-material/NavigateNextOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { CircularProgress } from "@mui/material";
-import "./listing.css";
+import './Listing.css'
 import Sidebar from "../Sidebar/sidebar.jsx";
 import Products from "../product/product.jsx";
 import axios from "axios";

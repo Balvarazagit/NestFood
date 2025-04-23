@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./components/cart/cartContext"; // ✅ Import CartProvider
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { CartProvider } from "./components/cart/cartContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Header from "./components/header/header.jsx";
 import Footer from "./components/footer/footer.jsx";
@@ -21,40 +23,51 @@ import ProductDetail from "./Page/Detail/detail.jsx";
 import Shop from "./components/Shop/shop.jsx";
 import TermsConditions from "./Page/Terms&Condition/T&C.jsx";
 import Privacy from "./Page/PrivacyPolicy/Privacy.jsx";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+// ✅ Layout logic inside a wrapper
+import { Fragment } from "react";
+
+function LayoutWrapper() {
+  const location = useLocation();
+  const hideHeaderFooter = ["/login", "/register", "/"].includes(location.pathname);
+
+  return (
+    <Fragment>
+      {!hideHeaderFooter && <Header />}
+
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/shop/:categoryName" element={<Shop />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/listing" element={<Listing />} />
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/deals" element={<Deals />} />
+        <Route path="/userAccount" element={<UserAccount />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/address" element={<Address />} />
+        <Route path="/order-tracking" element={<OrderPage />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/term&conditions" element={<TermsConditions />} />
+        <Route path="/privacy_policy" element={<Privacy />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
+      {!hideHeaderFooter && <Footer />}
+      <ToastContainer position="top-right" autoClose={2000} />
+    </Fragment>
+  );
+}
 
 function App() {
   return (
-    <CartProvider> {/* ✅ Wrap the entire app with CartProvider */}
+    <CartProvider>
       <BrowserRouter>
-        <Header />
-        <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/shop/:categoryName" element={<Shop />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/listing" element={<Listing />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/deals" element={<Deals />} />
-          <Route path="/userAccount" element={<UserAccount />} />
-          {/* <Route path="/cart" element={<Cart />} /> */}
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/address" element={<Address />} />
-          <Route path="/order-tracking" element={<OrderPage />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/term&conditions" element={<TermsConditions />}/>
-          <Route path="/privacy_policy" element={<Privacy />}/>
-          {/* <Route path="/product/" element={<ProductDetail/>}/> */}
-        </Routes>
-        <ToastContainer position="top-right" autoClose={2000} />
-        <Footer />
+        <LayoutWrapper />
       </BrowserRouter>
     </CartProvider>
   );

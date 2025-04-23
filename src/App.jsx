@@ -29,7 +29,7 @@ import { Fragment } from "react";
 
 function LayoutWrapper() {
   const location = useLocation();
-  const hideHeaderFooter = ["/login", "/register"].includes(location.pathname);
+  const hideHeaderFooter = ["/login", "/register",'/'].includes(location.pathname);
 
   return (
     <Fragment>
@@ -39,6 +39,7 @@ function LayoutWrapper() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/shop/:categoryName" element={<Shop />} />
         <Route path="/shop" element={<Shop />} />

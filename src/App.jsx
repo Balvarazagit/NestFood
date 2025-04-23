@@ -29,14 +29,14 @@ import { Fragment } from "react";
 
 function LayoutWrapper() {
   const location = useLocation();
-  const hideHeaderFooter = ["/login", "/register", "/"].includes(location.pathname);
+  const hideHeaderFooter = ["/login", "/register"].includes(location.pathname);
 
   return (
     <Fragment>
       {!hideHeaderFooter && <Header />}
 
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
         <Route path="/cart" element={<Cart />} />

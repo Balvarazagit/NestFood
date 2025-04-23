@@ -36,9 +36,9 @@ const CategorizeSlider = () => {
     slidesToShow: 5, // Adjust based on how many items you want visible
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1000,
     fade: false,
-    arrows: true,
+    arrows: false,
   };
 
   return (

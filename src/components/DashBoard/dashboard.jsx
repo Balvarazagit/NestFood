@@ -25,7 +25,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <nav className="breadcrumb">
-        <a href="/">Home</a> &gt; <a href="/pages">Pages</a> &gt; My Account
+        <a href="/home">Home</a> &gt; <a href="/home  ">Pages</a> &gt; My Account
       </nav>
       <div className="dashboard-content">
         <aside className="sidebar">

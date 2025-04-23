@@ -40,7 +40,7 @@ const Header = () => {
         <div className="header-content">
           {/* Logo */}
           <div className="logo">
-            <a href="/">
+            <a href="/home">
               <img src={Logo} alt="Logo" />
             </a>
           </div>
@@ -54,7 +54,7 @@ const Header = () => {
           <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
             <ul>
               <li>
-                <a onClick={() => handleNavigation("/")}>Home</a>
+                <a onClick={() => handleNavigation("/home ")}>Home</a>
               </li>
               <li>
                 <a onClick={() => handleNavigation("/about")}>About</a>

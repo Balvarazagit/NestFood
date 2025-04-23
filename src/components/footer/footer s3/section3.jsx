@@ -16,7 +16,7 @@ const Section3 = () => {
         <div className="row">
           <div className="img-para col-2">
             <div className="main-logo">
-              <a href="/"><img src={Logo} alt="Image Loading" /></a>
+              <a href="/home"><img src={Logo} alt="Image Loading" /></a>
             </div>
             <div className="more-info">
               <ul className="footer-para allUl-footer">
